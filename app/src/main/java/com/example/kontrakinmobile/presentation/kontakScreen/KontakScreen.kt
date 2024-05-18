@@ -9,4 +9,5 @@ fun KontakScreen(
     modifier: Modifier = Modifier,
 ) {
     Text(text = "Hello World")
+    Text(text = "Hello Guys")
 }

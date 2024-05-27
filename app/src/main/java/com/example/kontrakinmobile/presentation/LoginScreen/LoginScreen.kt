@@ -13,8 +13,10 @@ import androidx.compose.material.icons.filled.Facebook
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -37,11 +39,18 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 
     var checkedState = remember { mutableStateOf(false) }
 
+    var password by remember { mutableStateOf("") }
+    var passwordError by remember {
+        mutableStateOf(false)
+    }
+
     Column(
         modifier = modifier
             .padding(horizontal = 24.dp)
             .fillMaxWidth(),
+
     ) {
+        Spacer(modifier = modifier.height(120.dp))
         Text(text = "Masuk sebagai pencari", fontWeight = FontWeight.Bold, modifier = modifier.align(Alignment.CenterHorizontally))
         Image(
             painter = painterResource(id = R.drawable.logo_kontrakin_1),
@@ -49,21 +58,32 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             modifier = modifier.align(Alignment.CenterHorizontally)
         )
         EmailFieldComponents(label = "Email", placeholder = "example@gmail.com")
-        PasswordFieldComponents(label = "Password", placeholder = "********")
+        PasswordFieldComponents(
+            value = password,
+            onValueChange = {
+                password = it
+                passwordError = !isValidPassword(it)
+            },
+            label = "Password",
+            isError = passwordError
+        )
         Spacer(modifier = modifier.height(18.dp))
         MasukButton()
         Spacer(modifier = modifier.height(12.dp))
         BelumDaftarText()
-        Spacer(modifier = modifier.height(18.dp))
+        Spacer(modifier = modifier.height(148.dp))
         Text(
             text = "Atau daftar dengan",
             modifier = modifier.align(Alignment.CenterHorizontally),
             fontSize = 12.sp
         )
-        Spacer(modifier = modifier.height(12.dp))
+        Spacer(modifier = modifier.height(24.dp))
         Row(
-            modifier = modifier.fillMaxWidth().align(Alignment.CenterHorizontally),
-            horizontalArrangement = Arrangement.spacedBy(24.dp),
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             OtherAuthFeatureIcon()
             OtherAuthFeatureImage(icon = R.drawable.icons8_google)
@@ -79,4 +99,8 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 @Composable
 private fun LoginScreenPreview() {
     LoginScreen()
+}
+
+fun isValidPassword(password: String): Boolean {
+    return password.length >= 8
 }

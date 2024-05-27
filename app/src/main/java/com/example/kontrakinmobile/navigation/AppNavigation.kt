@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kontrakinmobile.presentation.LoginScreen.LoginScreen
 import com.example.kontrakinmobile.presentation.MainViewModel
 import com.example.kontrakinmobile.presentation.homeScreen.HomeScreen
 import com.example.kontrakinmobile.presentation.loginRegister.LoginRegisterScreen
@@ -25,7 +26,7 @@ fun AppNavigation(
             OnBoardingScreen(mainViewModel = mainViewModel)
         }
         composable(route = Screen.HomeScreen.name) {
-            HomeScreen()
+            LoginScreen()
         }
     }
 }

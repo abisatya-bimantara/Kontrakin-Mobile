@@ -1,4 +1,4 @@
-package com.example.kontrakinmobile.presentation.LoginScreen.components
+package com.example.kontrakinmobile.presentation.RegisterScreen.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -29,7 +30,10 @@ fun  Menyetujui() {
     Row(
         modifier = Modifier,
         verticalAlignment = Alignment.CenterVertically) {
-        Checkbox(checked = checkedState.value, onCheckedChange = { checkedState.value = it })
+        Checkbox(
+            checked = checkedState.value,
+            onCheckedChange = { checkedState.value = it },
+            colors = CheckboxDefaults.colors(Color(0xff7BC0B5)))
         Column {
         Text(text = "Dengan melanjutkan, saya menjamin data yang diberikan adalah benar dan menyetujui ")
         Text(

@@ -3,6 +3,7 @@ package com.example.kontrakinmobile.presentation.RiwayatPengajuan
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -25,15 +26,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.kontrakinmobile.R
+import com.example.kontrakinmobile.presentation.RiwayatPengajuan.components.ButtonRiwayatPengajuan
+import com.example.kontrakinmobile.presentation.RiwayatPengajuan.components.ContentRiwayatPengajuan
 import com.example.kontrakinmobile.presentation.SettingsScreen.components.Header
 
 @Composable
-fun RiwayatPengajuan () {
+fun RiwayatPengajuan (navController: NavHostController) {
     Column (modifier = Modifier.background(color= Color(0xffDAF2EE))) {
         Header()
         Spacer(modifier = Modifier.height(16.dp))
@@ -45,16 +51,18 @@ fun RiwayatPengajuan () {
             colors = CardDefaults.cardColors(Color.White)
 
         ) {
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 19.dp, end = 19.dp, top = 20.dp),
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 20.dp, end = 20.dp, top = 20.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ){
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = null,
                     modifier = Modifier
                         .size(30.dp)
-                        .clickable { /* Handle menu item click */ },
+                        .clickable {navController.popBackStack()},
                     tint = Color.hsv(
                         hue = 170f,
                         saturation = 0.36f,
@@ -62,39 +70,21 @@ fun RiwayatPengajuan () {
                         alpha = 1f
                     )
                 )
-                Text(
-                    modifier = Modifier.padding(start = 10.dp),
-                    text = "Riwayat Pengajuan",
-                    fontSize = 20.sp,
-                    textAlign = TextAlign.Center
-                )
-            }
-            Spacer(modifier = Modifier.height(79.dp))
-            Image(
-                painter = painterResource(id = R.drawable.riwayat_pengajuan),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(241.dp)
-                    .align(Alignment.CenterHorizontally),)
-            Text(text = "Kamu belum  booking nih, yuk mulai booking kontrakan yang kamu inginkan.",
-                fontSize = 15.sp,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .size(width = 295.dp, height = 40.dp)
-                    .align(Alignment.CenterHorizontally)
-            )
-            Spacer(modifier = Modifier.height(97.dp))
-            Column (modifier = Modifier.fillMaxWidth()) {
-                Button(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
-                    colors = ButtonDefaults.buttonColors(Color(0xff7BC0B5)),
-                    onClick = { /*TODO*/ },
-                ) {
-                    Text(text = "Cari", modifier = Modifier.padding(start = 15.dp, end = 15.dp))
-
+                Row (modifier = Modifier
+                    .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center){
+                    Text(
+                        modifier = Modifier.padding(end = 32.dp),
+                        text = "Riwayat Pengajuan",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
+            Spacer(modifier = Modifier.height(79.dp))
+            ContentRiwayatPengajuan()
+            Spacer(modifier = Modifier.height(97.dp))
+            ButtonRiwayatPengajuan()
         }
     }
 }
@@ -102,5 +92,5 @@ fun RiwayatPengajuan () {
 @Preview (showBackground = true)
 @Composable
 fun RiwayatPengajuanPreview() {
-    RiwayatPengajuan()
+    RiwayatPengajuan(rememberNavController())
 }

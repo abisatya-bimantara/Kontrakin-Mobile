@@ -11,8 +11,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,13 +32,18 @@ fun ContentVerifikasiAkun () {
             .fillMaxWidth(1f)
             .padding(start = 19.dp, end = 19.dp, top = 10.dp),
     ){
-        //ubah Card
-        OutlinedTextField(
-            value = "Lengkapi datamu agar proses pengajuan sewa lebih cepat.",
-            onValueChange = {},
+        Card(
             shape = RoundedCornerShape(10.dp),
-            textStyle = LocalTextStyle.current.copy(color = Color(0xff298F8F)),
-        )
+            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xffF3FBFA))
+
+        ) {
+            Text("Lengkapi datamu agar proses pengajuan sewa lebih cepat.",
+                color = Color(0xff298F8F),
+                fontSize = 18.sp,
+                modifier = Modifier.padding(15.dp))
+
+        }
         Spacer(modifier = Modifier.height(10.dp))
         Text("** Kami melindungi informasi dan penggunaan data diri  pada pengguna kami", color = Color.Red)
         Spacer(modifier = Modifier.height(50.dp))

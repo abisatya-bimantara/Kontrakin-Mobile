@@ -60,6 +60,11 @@ fun Header() {
                     contentDescription = null,
                     modifier = Modifier
                         .clickable { /* Handle menu item click */ },
+                    tint = Color.hsv(
+                        hue = 170f,
+                        saturation = 0.36f,
+                        value = 0.75f,
+                        alpha = 1f),
                 )
             }
 

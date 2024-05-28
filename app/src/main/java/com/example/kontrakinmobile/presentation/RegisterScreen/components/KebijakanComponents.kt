@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun RememberMeComponents(modifier: Modifier = Modifier) {
+fun KebijakanComponents(modifier: Modifier = Modifier) {
     val checkedState = remember { mutableStateOf(false) }
 
     Row(
@@ -23,13 +23,13 @@ fun RememberMeComponents(modifier: Modifier = Modifier) {
             checked = checkedState.value,
             onCheckedChange = { checkedState.value = it }
         )
-        Text(text = "Remember Me")
+        Text(text = "Saya menyetujui semua persyaratan dan kebijakan privasi")
     }
 }
 
 
 @Preview
 @Composable
-private fun RememberMeComponentsPreview() {
-    RememberMeComponents()
+private fun KebijakanComponentsPreview() {
+    KebijakanComponents()
 }

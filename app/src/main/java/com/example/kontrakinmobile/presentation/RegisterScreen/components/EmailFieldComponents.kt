@@ -1,6 +1,8 @@
 package com.example.kontrakinmobile.presentation.RegisterScreen.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -11,9 +13,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 
 @Composable
-fun EmailFieldComponents(modifier: Modifier = Modifier, label: String, placeholder: String) {
+fun EmailFieldComponents(modifier: Modifier = Modifier, label: String) {
     var text by remember {
         mutableStateOf("")
     }
@@ -21,8 +24,8 @@ fun EmailFieldComponents(modifier: Modifier = Modifier, label: String, placehold
         value =text,
         onValueChange ={text = it},
         label = { Text(text = label)},
-        placeholder = { Text(text = placeholder)},
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().padding(horizontal = 12.dp),
+        shape = RoundedCornerShape(12.dp)
     )
 }

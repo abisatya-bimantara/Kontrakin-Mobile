@@ -16,20 +16,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun BelumDaftarText(modifier: Modifier = Modifier) {
+fun SudahDaftarText(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ){
-        Text(text = "Belum Punya Akun?", textAlign = TextAlign.Center)
+        Text(text = "Sudah Punya Akun?", textAlign = TextAlign.Center)
         Spacer(modifier = modifier.width(4.dp))
-        Text(text = "Daftar", color = Color(0xFF7BC0B5), modifier = modifier.clickable {  })
+        Text(text = "Masuk", color = Color(0xFF7BC0B5), modifier = modifier.clickable {  })
     }
 }
 
 @Preview
 @Composable
-private fun BelumDaftarTextPreview() {
-    BelumDaftarText()
+private fun SudahDaftarTextPreview() {
+    SudahDaftarText()
 }

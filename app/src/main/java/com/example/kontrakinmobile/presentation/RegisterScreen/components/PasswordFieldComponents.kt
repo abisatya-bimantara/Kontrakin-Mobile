@@ -1,6 +1,8 @@
 package com.example.kontrakinmobile.presentation.RegisterScreen.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -18,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun PasswordFieldComponents(
@@ -44,7 +47,8 @@ fun PasswordFieldComponents(
                            )
                        }
         },
-        modifier = modifier.fillMaxWidth(),
-        isError = isError
+        modifier = modifier.fillMaxWidth().padding(horizontal = 12.dp),
+        isError = isError,
+        shape = RoundedCornerShape(12.dp)
     )
 }

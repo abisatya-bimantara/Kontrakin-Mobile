@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -74,4 +76,18 @@ dependencies {
 
     // SplashScreen API
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    //DataStore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    //Extended Icon
+    implementation("androidx.compose.material:material-icons-extended:1.6.7")
+
 }

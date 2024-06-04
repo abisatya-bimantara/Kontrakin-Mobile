@@ -27,7 +27,7 @@ fun AppNavigation(
             OnBoardingScreen(mainViewModel = mainViewModel)
         }
         composable(route = Screen.HomeScreen.name) {
-            RegisterScreen()
+            HomeScreen()
         }
     }
 }
